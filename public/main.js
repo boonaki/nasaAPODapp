@@ -42,7 +42,7 @@ function getFetch(){
             video.classList.remove('hidden')
             video.src = data.video
         }
-        h3.innerText = data.explan
+        h3.innerText = data.explain
         title.innerText = data.title
     })
 }
@@ -63,7 +63,7 @@ function returnToPresent(){
             video.classList.remove('hidden')
             video.src = data.video
         }
-        h3.innerText = data.explan
+        h3.innerText = data.explain
         title.innerText = data.title
         })
         .catch(err => console.error(err))
@@ -85,7 +85,7 @@ function getRandom(){
                 video.classList.remove('hidden')
                 video.src = data.video
             }
-            h3.innerText = data.explan
+            h3.innerText = data.explain
             title.innerText = data.title
         })
         .catch(err => {
