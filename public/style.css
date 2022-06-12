@@ -49,9 +49,14 @@ h3{
   padding: 0 20%;
 }
 
-img, iframe{
+img{
   max-height: 80%;
   max-width: 80%;
+}
+
+iframe{
+  height: 480px;
+  width: 100%;
 }
 
 .hidden{
