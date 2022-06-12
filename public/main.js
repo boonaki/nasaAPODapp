@@ -3,6 +3,12 @@ currentDay.addEventListener('click', returnToPresent)
 document.querySelector('#random').addEventListener('click', getRandom)
 document.querySelector('#button').addEventListener('click', getFetch)
 
+//stores html tags in variables
+let image = document.querySelector('img')
+let video = document.querySelector('iframe')
+let h3 = document.querySelector('h3')
+let title = document.querySelector('#title')
+
 //find today and store in variable
 let today = new Date();
 let DD = String(today.getDate()).padStart(2, '0');
@@ -13,6 +19,7 @@ today = YYYY + '-' + MM + '-' + DD;
 //on page load, display data for the current day
 window.onload = getFetch()
 
+//displays data for the current day
 function getFetch(){
     let choice = document.querySelector('input').value
     if(!choice){
@@ -26,17 +33,17 @@ function getFetch(){
         .then(data => {
         console.log(data)
         if( data.mediatype === 'image' ){
-            document.querySelector('img').classList.remove('hidden')
-            document.querySelector('img').src = data.hdurl
-            document.querySelector('iframe').classList.add('hidden')
+            image.classList.remove('hidden')
+            image.src = data.hdurl
+            video.classList.add('hidden')
 
         }else if(data.mediatype === 'video'){
-            document.querySelector('img').classList.add('hidden')
-            document.querySelector('iframe').classList.remove('hidden')
-            document.querySelector('iframe').src = data.video
+            image.classList.add('hidden')
+            video.classList.remove('hidden')
+            video.src = data.video
         }
-        document.querySelector('h3').innerText = data.explan
-        document.querySelector('#title').innerText = data.title
+        h3.innerText = data.explan
+        title.innerText = data.title
     })
 }
 
@@ -47,17 +54,17 @@ function returnToPresent(){
       .then(data => {
         currentDay.style.display = 'none'
         if( data.mediatype === 'image' ){
-            document.querySelector('img').classList.remove('hidden')
-            document.querySelector('img').src = data.hdurl
-            document.querySelector('iframe').classList.add('hidden')
+            image.classList.remove('hidden')
+            image.src = data.hdurl
+            video.classList.add('hidden')
 
         }else if(data.mediatype === 'video'){
-            document.querySelector('img').classList.add('hidden')
-            document.querySelector('iframe').classList.remove('hidden')
-            document.querySelector('iframe').src = data.video
+            image.classList.add('hidden')
+            video.classList.remove('hidden')
+            video.src = data.video
         }
-        document.querySelector('h3').innerText = data.explan
-        document.querySelector('#title').innerText = data.title
+        h3.innerText = data.explan
+        title.innerText = data.title
         })
         .catch(err => console.error(err))
 }
@@ -70,16 +77,16 @@ function getRandom(){
         currentDay.style.display = 'block'
         console.log(data)
             if(data.mediatype=== 'image'){
-                document.querySelector('img').classList.remove('hidden')
-                document.querySelector('img').src = data.hdurl
-                document.querySelector('iframe').classList.add('hidden') 
+                image.classList.remove('hidden')
+                image.src = data.hdurl
+                video.classList.add('hidden') 
             }else if(data.mediatype === 'video'){
-                document.querySelector('img').classList.add('hidden')
-                document.querySelector('iframe').classList.remove('hidden')
-                document.querySelector('iframe').src = data.video
+                image.classList.add('hidden')
+                video.classList.remove('hidden')
+                video.src = data.video
             }
-            document.querySelector('h3').innerText = data.explan
-            document.querySelector('#title').innerText = data.title
+            h3.innerText = data.explan
+            title.innerText = data.title
         })
         .catch(err => {
             console.log(`error ${err}`)
