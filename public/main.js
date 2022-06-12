@@ -26,10 +26,12 @@ function getFetch(){
         .then(data => {
         console.log(data)
         if( data.mediatype === 'image' ){
+            document.querySelector('img').classList.remove('hidden')
             document.querySelector('img').src = data.hdurl
             document.querySelector('iframe').classList.add('hidden')
 
         }else if(data.mediatype === 'video'){
+            document.querySelector('img').classList.add('hidden')
             document.querySelector('iframe').classList.remove('hidden')
             document.querySelector('iframe').src = data.video
         }
@@ -45,12 +47,14 @@ function returnToPresent(){
       .then(data => {
         currentDay.style.display = 'none'
         if( data.mediatype === 'image' ){
-          document.querySelector('img').src = data.hdurl
-          document.querySelector('iframe').classList.add('hidden')
+            document.querySelector('img').classList.remove('hidden')
+            document.querySelector('img').src = data.hdurl
+            document.querySelector('iframe').classList.add('hidden')
 
         }else if(data.mediatype === 'video'){
-          document.querySelector('iframe').classList.remove('hidden')
-          document.querySelector('iframe').src = data.video
+            document.querySelector('img').classList.add('hidden')
+            document.querySelector('iframe').classList.remove('hidden')
+            document.querySelector('iframe').src = data.video
         }
         document.querySelector('h3').innerText = data.explan
         document.querySelector('#title').innerText = data.title
@@ -66,9 +70,11 @@ function getRandom(){
         currentDay.style.display = 'block'
         console.log(data)
             if(data.mediatype=== 'image'){
+                document.querySelector('img').classList.remove('hidden')
                 document.querySelector('img').src = data.hdurl
                 document.querySelector('iframe').classList.add('hidden') 
             }else if(data.mediatype === 'video'){
+                document.querySelector('img').classList.add('hidden')
                 document.querySelector('iframe').classList.remove('hidden')
                 document.querySelector('iframe').src = data.video
             }
