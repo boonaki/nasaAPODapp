@@ -27,7 +27,10 @@ function getFetch(){
         console.log(data)
         if( data.mediatype === 'image' ){
             document.querySelector('img').src = data.hdurl
+            document.querySelector('iframe').classList.add('hidden')
+
         }else if(data.mediatype === 'video'){
+            document.querySelector('iframe').classList.remove('hidden')
             document.querySelector('iframe').src = data.video
         }
         document.querySelector('h3').innerText = data.explan
