@@ -54,7 +54,7 @@ img, iframe{
   max-width: 80%;
 }
 
-hidden{
+.hidden{
   display: none;
 }
 
