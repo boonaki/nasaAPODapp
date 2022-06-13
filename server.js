@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 8000
 const fetch = require('node-fetch')
 require('dotenv').config()
 
@@ -36,6 +35,6 @@ app.get('/random', (req,res) => {
 })
 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 8000, () => {
     console.log(`server is running`)
 })
