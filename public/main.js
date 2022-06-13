@@ -6,7 +6,7 @@ document.querySelector('#button').addEventListener('click', getFetch)
 //stores html tags in variables
 let image = document.querySelector('img')
 let video = document.querySelector('iframe')
-let h3 = document.querySelector('h3')
+let explanation = document.querySelector('h3')
 let title = document.querySelector('#title')
 
 //find today and store in variable
@@ -31,64 +31,45 @@ function getFetch(){
     fetch(`/pic/${choice}`)
         .then(res => res.json())
         .then(data => {
-        console.log(data)
-        if( data.mediatype === 'image' ){
-            image.classList.remove('hidden')
-            image.src = data.hdurl
-            video.classList.add('hidden')
-
-        }else if(data.mediatype === 'video'){
-            image.classList.add('hidden')
-            video.classList.remove('hidden')
-            video.src = data.video
-        }
-        h3.innerText = data.explain
-        title.innerText = data.title
-    })
+            updateHTML(data)
+        })
+        .catch(err => console.error(err))
 }
 
 //displays data for present day
 function returnToPresent(){
     fetch(`/pic/${today}`)
-      .then(res => res.json()) // parse response as JSON
-      .then(data => {
-        currentDay.style.display = 'none'
-        if( data.mediatype === 'image' ){
-            image.classList.remove('hidden')
-            image.src = data.hdurl
-            video.classList.add('hidden')
-
-        }else if(data.mediatype === 'video'){
-            image.classList.add('hidden')
-            video.classList.remove('hidden')
-            video.src = data.video
-        }
-        h3.innerText = data.explain
-        title.innerText = data.title
+        .then(res => res.json()) // parse response as JSON
+        .then(data => {
+            currentDay.style.display = 'none'
+            updateHTML(data)
         })
         .catch(err => console.error(err))
 }
 
 //displays data for a random day
 function getRandom(){
-  fetch('/random')
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-        currentDay.style.display = 'block'
-        console.log(data)
-            if(data.mediatype=== 'image'){
-                image.classList.remove('hidden')
-                image.src = data.hdurl
-                video.classList.add('hidden') 
-            }else if(data.mediatype === 'video'){
-                image.classList.add('hidden')
-                video.classList.remove('hidden')
-                video.src = data.video
-            }
-            h3.innerText = data.explain
-            title.innerText = data.title
+    fetch('/random')
+        .then(res => res.json()) // parse response as JSON
+        .then(data => {
+            currentDay.style.display = 'block'
+            updateHTML(data)
         })
         .catch(err => {
             console.log(`error ${err}`)
         });
+}
+
+function updateHTML(data){
+    if(data.mediatype=== 'image'){
+        image.classList.remove('hidden')
+        image.src = data.hdurl
+        video.classList.add('hidden') 
+    }else if(data.mediatype === 'video'){
+        image.classList.add('hidden')
+        video.classList.remove('hidden')
+        video.src = data.video
+    }
+    explanation.innerText = data.explain
+    title.innerText = data.title
 }
