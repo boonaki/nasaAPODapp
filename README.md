@@ -9,7 +9,7 @@ This fullstack web application pulls data provided by NASA and displays the data
 
 **Tech used:** HTML, CSS, JavaScript, Node, Express 
 
-The app gives the ability to choose a date, and display the corresponding NASA Astronomy Picture of the Day, along with a title and written explanation of the photo. The server is where the API calls are made and are then sent to the front-end. The main JS file is set up to read and display the data being sent by the server.
+The app gives the ability to choose a date, and display the corresponding NASA Astronomy Picture of the Day, along with a title and written explanation of the photo. The server is set up to make API calls and the relevant information is then sent to the front-end. The main JS file is set up to read and display the data being sent by the server.
 
 ## Optimizations
 
