@@ -10,12 +10,24 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-img{
+
+#imageContainer > img{
   display: block;
   margin: 0 auto;
   max-height: 80%;
   max-width: 95%;
 }
+#bg{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  position: fixed;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
+
 input{
   padding:  10px;
   font-size: 15px;
