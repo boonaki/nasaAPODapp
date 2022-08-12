@@ -8,6 +8,7 @@ let image = document.querySelector('img')
 let video = document.querySelector('iframe')
 let explanation = document.querySelector('h3')
 let title = document.querySelector('#title')
+let date = document.querySelector('#date')
 
 //find today and store in variable
 let today = new Date();
@@ -72,4 +73,5 @@ function updateHTML(data){
     }
     explanation.innerText = data.explain
     title.innerText = data.title
+    date.innerText = data.date
 }

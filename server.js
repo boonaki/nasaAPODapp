@@ -16,7 +16,7 @@ app.get('/pic/:date', (req,res) => {
     fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-        res.send({ mediatype: data.media_type, hdurl: data.hdurl, video: data.url, explain: data.explanation, title: data.title})
+        res.send({ date: data.date, mediatype: data.media_type, hdurl: data.hdurl, video: data.url, explain: data.explanation, title: data.title})
       })
       .catch(err => {
           console.log(`error ${err}`)
@@ -29,7 +29,7 @@ app.get('/random', (req,res) => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            res.send({ mediatype: data[0].media_type, hdurl: data[0].hdurl, video: data[0].url, explain: data[0].explanation, title: data[0].title })
+            res.send({ date: data[0].date, mediatype: data[0].media_type, hdurl: data[0].hdurl, video: data[0].url, explain: data[0].explanation, title: data[0].title })
         })
         .catch(error => console.error(error))
 })

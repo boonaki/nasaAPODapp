@@ -11,14 +11,15 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="normalize.css">
+		<!-- <link rel="stylesheet" href="normalize.css"> -->
 		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="main.js" defer></script>
 	</head>
 	<body>
-
-		<section>
+		<section id="ghost"></section>
+		<section id="leftContainer">
+			<h1>NASA's Picture of the Day</h1>
 			<section id="directoryContainer">
-				<h1>NASA's Picture of the Day</h1>
 				<input type="date" name="" value="">
 				<div id="buttons">
 					<span id="button">find day</span>
@@ -28,16 +29,16 @@
 			</section>
 			<section id="infoContainer">
 				<div id="data-text">
+					<span id="date"></span>
 					<h2 id="title"></h2>
 					<h3>Explanation</h3>
 				</div>
 			</section>
+			<span><a href="#" id="github">github</a></span>
 		</section>
 		<section id="imageContainer">
 			<img src="" alt="">
 			<iframe src="" frameborder="0"></iframe>
 		</section>
-	
-		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
