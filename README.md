@@ -3,7 +3,7 @@ This fullstack web application pulls data provided by NASA and displays the data
 
 **Link to project:** https://nasaapodapp.herokuapp.com/
 
-<!-- ![alt tag](http://placecorgi.com/1200/650) -->
+<img src="/private/apodgif">
 
 ## How It's Made:
 
