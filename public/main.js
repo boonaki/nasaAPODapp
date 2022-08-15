@@ -18,6 +18,13 @@ function hideLoad(){
     loadAnimContainer.style.display = 'none'
 }
 
+//determine viewport width
+let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+if(vw >= 1500){
+    console.log(vw)
+    loadAnimContainer.style.width = (vw - 495) + "px"
+}
+
 //stores html tags in variables
 let image = document.querySelector('img')
 let video = document.querySelector('iframe')
@@ -114,11 +121,13 @@ let collapseNav = document.querySelector('#collapseNav')
 collapse.addEventListener('click', _ => {
     left.classList.toggle('active')
     collapseNav.classList.toggle('active')
+    loadAnimContainer.classList.add('collapseAnimChange')
     body.classList.add('bodyHeight')
 })
 
 expand.addEventListener('click', _ => {
     left.classList.remove('active')
     collapseNav.classList.remove('active')
+    loadAnimContainer.classList.remove('collapseAnimChange')
     body.classList.remove('bodyHeight')
 })
