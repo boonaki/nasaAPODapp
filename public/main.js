@@ -18,7 +18,8 @@ function hideLoad(){
     loadAnimContainer.style.display = 'none'
 }
 
-//determine viewport width
+//determine viewport width on page load
+//todo : check for browser changes
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 if(vw >= 1500){
     console.log(vw)
@@ -49,6 +50,9 @@ let dataImg = document.querySelector('#data_img')
 let dataIframe = document.querySelector('#data_iframe')
 
 dataImg.addEventListener('load', (e) => {
+    hideLoad()
+})
+dataIframe.addEventListener('load', (e) => {
     hideLoad()
 })
 

@@ -112,6 +112,7 @@ body {
 
 h1 {
     font-size: 6.4rem;
+    font-weight: bold;
 }
 
 #leftContainer>section {
@@ -142,6 +143,7 @@ input {
     padding: 10px;
     font-size: 4.5rem;
     /* margin-top: 10px; */
+    color: black;
     border: none;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
@@ -164,31 +166,37 @@ input:active {
 }
 
 #date {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
 }
 
 #title {
     font-size: 7.0rem;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 
 #explain {
     overflow: auto;
     height: 195px;
     padding: 0 20px;
-    line-height: 25px;
+    line-height: 40px;
     font-size: 2.8rem;
 }
 
-#collapse {
-    font-size: 2.8rem;
-    width: 20%;
-    margin-left: 80%;
+#appButtons{
+    display: flex;
+    justify-content: space-evenly;
 }
 
-#github {
-    font-size: 4.0rem;
-    color: white;
+#collapse, #github {
+    font-size: 3.5rem;
+    width: 30%;
+    padding: 30px;
+    border-radius: 10px;
+    background: #3d426a;
+    border: 5px solid #42517d;
+    color: #d9d9d9;
+    font-weight: bold;
 }
 
 #imageContainer>img {
@@ -269,6 +277,10 @@ iframe {
         width: 25%;
         padding: 5% 0;
         position: fixed;
+    }
+    #github{
+        padding: 18px 0;
+        width: 50%;
     }
 
     #ghost {
