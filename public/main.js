@@ -14,6 +14,9 @@ let loadAnimation = bodymovin.loadAnimation({
     path: 'https://assets8.lottiefiles.com/packages/lf20_yeurnckd.json' // lottie file path
 })
 
+document.querySelector('#bg').style.height = window.innerHeight + 'px'
+
+
 function hideLoad(){
     loadAnimContainer.style.display = 'none'
 }
@@ -32,7 +35,7 @@ let video = document.querySelector('iframe')
 let explanation = document.querySelector('#explain')
 let title = document.querySelector('#title')
 let date = document.querySelector('#date')
-let body = document.querySelector('body')
+let body = document.querySelector('#body')
 let navDate = document.querySelector('#navDate')
 
 //find today and store in variable
@@ -55,6 +58,18 @@ dataImg.addEventListener('load', (e) => {
 dataIframe.addEventListener('load', (e) => {
     hideLoad()
 })
+
+let expandText = document.querySelector('#expandText')
+expandText.addEventListener('click', _ => {
+    if(explanation.style.height === "100%"){
+        explanation.style.height = "195px"
+        expandText.innerText = 'expand text'
+    }else{
+        explanation.style.height = "100%"
+        expandText.innerText = 'collapse text'
+
+    }  
+});
 
 //displays data for the current day
 function getFetch(){

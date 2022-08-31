@@ -46,7 +46,7 @@ html {
 /*******************************************/
 #bg {
     position: absolute;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     object-fit: cover;
     z-index: -1;
@@ -78,7 +78,7 @@ body {
     padding: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #leftContainer.active {
@@ -138,6 +138,14 @@ h1 {
     font-weight: bold;
     border-radius: 5px;
 }
+
+
+#expandText{
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+
 
 input {
     padding: 10px;
@@ -277,6 +285,7 @@ iframe {
         width: 25%;
         padding: 5% 0;
         position: fixed;
+        overflow: overlay;
     }
     #github{
         padding: 18px 0;
@@ -289,6 +298,8 @@ iframe {
 
     #explain {
         font-size: 3.8rem;
+        line-height: 25px;
+        padding: 0 10px;
     }
 
     #animContainer {
@@ -308,7 +319,7 @@ iframe {
         width: 450px;
     }
     #ghost{
-        width: 450px;
+        width: 610px;
     }
 }
 
