@@ -285,7 +285,26 @@ iframe {
         width: 25%;
         padding: 5% 0;
         position: fixed;
-        overflow: overlay;
+        /* overflow: overlay; */
+    }
+    /* width */
+    #leftContainer::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    /* Track */
+    #leftContainer::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    /* Handle */
+    #leftContainer::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    
+    /* Handle on hover */
+    #leftContainer::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
     #github{
         padding: 18px 0;

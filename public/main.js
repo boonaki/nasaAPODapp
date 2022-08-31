@@ -59,53 +59,42 @@ dataIframe.addEventListener('load', (e) => {
     hideLoad()
 })
 
-let expandText = document.querySelector('#expandText')
-expandText.addEventListener('click', _ => {
-    if(explanation.style.height === "100%"){
-        explanation.style.height = "195px"
-        expandText.innerText = 'expand text'
-    }else{
-        explanation.style.height = "100%"
-        expandText.innerText = 'collapse text'
-
-    }  
-});
 
 //displays data for the current day
 function getFetch(){
     let choice = document.querySelector('input').value
     loadAnimContainer.style.display = 'flex'
-
+    
     if(!choice){
         choice = today
     }
     if(choice !== today){
         currentDay.classList.remove('visibility')
     }
-
+    
     fetch(`/pic/${choice}`)
         .then(res => res.json())
         .then(data => {
             updateHTML(data)
         })
         .catch(err => console.error(err))
-}
-
-//displays data for present day
-function returnToPresent(){
-    fetch(`/pic/${today}`)
+    }
+    
+    //displays data for present day
+    function returnToPresent(){
+        fetch(`/pic/${today}`)
         .then(res => res.json()) // parse response as JSON
         .then(data => {
             currentDay.classList.add('visibility')
             updateHTML(data)
         })
         .catch(err => console.error(err))
-}
-
-//displays data for a random day
-function getRandom(){
-    loadAnimContainer.style.display = 'flex'
-    fetch('/random')
+    }
+    
+    //displays data for a random day
+    function getRandom(){
+        loadAnimContainer.style.display = 'flex'
+        fetch('/random')
         .then(res => res.json()) // parse response as JSON
         .then(data => {
             currentDay.classList.remove('visibility')
@@ -114,23 +103,23 @@ function getRandom(){
         .catch(err => {
             console.log(`error ${err}`)
         });
-}
-
-function updateHTML(data){
-    if(data.mediatype=== 'image'){
-        image.classList.remove('hidden')
-        image.src = data.hdurl
-        video.classList.add('hidden') 
-    }else if(data.mediatype === 'video'){
-        image.classList.add('hidden')
-        video.classList.remove('hidden')
-        video.src = data.video
     }
-    explanation.innerText = data.explain
-    title.innerText = data.title
-    date.innerText = data.date
-    navDate.innerText = data.date
-}
+    
+    function updateHTML(data){
+        if(data.mediatype=== 'image'){
+            image.classList.remove('hidden')
+            image.src = data.hdurl
+            video.classList.add('hidden') 
+        }else if(data.mediatype === 'video'){
+            image.classList.add('hidden')
+            video.classList.remove('hidden')
+            video.src = data.video
+        }
+        explanation.innerText = data.explain
+        title.innerText = data.title
+        date.innerText = data.date
+        navDate.innerText = data.date
+    }
 
 let collapse = document.querySelector('#collapse')
 let expand = document.querySelector('#expand')
@@ -150,3 +139,26 @@ expand.addEventListener('click', _ => {
     loadAnimContainer.classList.remove('collapseAnimChange')
     body.classList.remove('bodyHeight')
 })
+
+let expandText = document.querySelector('#expandText')
+expandText.addEventListener('click', _ => {
+    if(window.innerWidth >= '1024'){
+        if(explanation.style.height === "100%"){
+            explanation.style.height = "195px"
+            expandText.innerText = 'expand text'
+            left.style.overflow = 'hidden'
+        }else{
+            explanation.style.height = "100%"
+            left.style.overflow = 'overlay'
+            expandText.innerText = 'collapse text'
+        }  
+    }else{
+        if(explanation.style.height === "100%"){
+            explanation.style.height = "195px"
+            expandText.innerText = 'expand text'
+        }else{
+            explanation.style.height = "100%"
+            expandText.innerText = 'collapse text'
+        }  
+    }
+});
