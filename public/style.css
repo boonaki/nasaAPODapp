@@ -285,7 +285,7 @@ iframe {
         width: 25%;
         padding: 5% 0;
         position: fixed;
-        /* overflow: overlay; */
+        
     }
     /* width */
     #leftContainer::-webkit-scrollbar {

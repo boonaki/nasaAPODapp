@@ -149,7 +149,7 @@ expandText.addEventListener('click', _ => {
             left.style.overflow = 'hidden'
         }else{
             explanation.style.height = "100%"
-            left.style.overflow = 'overlay'
+            left.style.overflow = 'scroll'
             expandText.innerText = 'collapse text'
         }  
     }else{
