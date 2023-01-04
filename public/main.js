@@ -25,7 +25,6 @@ function hideLoad(){
 //todo : check for browser changes
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 if(vw >= 1500){
-    console.log(vw)
     loadAnimContainer.style.width = (vw - 495) + "px"
 }
 
