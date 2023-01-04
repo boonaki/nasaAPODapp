@@ -17,10 +17,10 @@ Within the backend, I have filtered the data being received by the NASA API to o
 
 ## Lessons Learned:
 
-After building the completed app, I had realized that my API key was exposed and decided I needed to hide my key. Upon further research, I discovered that I would need to build a backend to the project in order to hide the key. The frontend javascript file was rewritten to be able to listen and receive data from the newly created backend. Although the project could have been entirely front-end, building the backend further improved my understanding of enviroment variables and how the front-end communicates with the back-end.
+After building the completed app, I had come across the issue that my API key was exposed and found that I needed to hide my key. Upon further research, I discovered that I would need to build a backend to the project in order to hide the key. The frontend javascript file was rewritten to be able to listen and receive data from the newly created backend.
 
 ## Examples:
-Take a look at these other fullstack web applications in my portfolio:
+Take a look at these other fullstack web applications I have built:
 
 **Star-Wars Quotes:** https://github.com/boonaki/starwars-crud
 
